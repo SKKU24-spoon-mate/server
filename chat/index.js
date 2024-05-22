@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(router);
 
 // Need to be replaced with integrated db
-mongoose.connect('mongodb+srv://ckckdud3:kkzyQdL0fXTZuUMZ@backenddb.2v54orv.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+mongoose.connect('')
 .then(() => {
     console.log('Connected to database');
     
