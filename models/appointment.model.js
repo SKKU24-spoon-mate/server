@@ -1,28 +1,22 @@
 const mongoose = require('mongoose');
 
-const ChatSchema = mongoose.Schema(
+const AppointmentSchema = mongoose.Schema(
     {
         from: {
             type: String,
             required: true
         },
 
-        to: {
+        target: {
             type: String,
             required: true
-        },
-
-        content: {
-            type: String,
-            required: true
-        },
-
+        }
     },
     {
         timestamps: true
     }
 );
 
-const Chat = mongoose.model('Chat', ChatSchema);
+const Appointment = mongoose.model('Appointment', AppointmentSchema);
 
-module.exports = Chat;
+module.exports = Appointment;

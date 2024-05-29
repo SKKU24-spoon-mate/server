@@ -1,11 +1,35 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const router = require('./routes/chat.route')
+const express = require('express');
+const mongoose = require('mongoose');
+const http = require('http');
+const chatrouter = require('./routes/chat.route');
+const socketio = require('socket.io');
 
-const app = express()
+const app = express();
+const httpserver = http.createServer(app);
+const io = socketio(httpserver); 
+
+let users = {};
+
+io.on('connection', (socket) => {
+
+    socket.on('login', (userid) => {
+        users[userid] = socket.id;
+        console.log('user id ', userid, ' connected');
+    });
+
+    socket.on('chat message', (msg) => {
+        
+    });
+
+    socket.on('match notice', (notice) => {
+
+    });
+
+
+})
 
 app.use(express.json());
-app.use(router);
+app.use(chatrouter);
 
 // Need to be replaced with integrated db
 mongoose.connect('')
