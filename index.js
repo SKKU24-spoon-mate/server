@@ -31,13 +31,18 @@ io.on('connection', (socket) => {
 app.use(express.json());
 app.use(chatrouter);
 
-// Need to be replaced with integrated db
-mongoose.connect('')
-.then(() => {
-    console.log('Connected to database');
-    
-    app.listen(3000, () => {
-        console.log('running on port 3000')
-    });
+app.get('/', (req, res) => {
+    res.send('Hello World')
+});
 
-}).catch(() => console.log('Connection to database failed'));
+// Need to be replaced with integrated db
+//we just add Node-API after 'net/' to call it Node-API 
+mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+    .then(() => {
+        console.log('Connected to database');
+
+        app.listen(3000, () => {
+            console.log('running on port 3000')
+        });
+
+    }).catch(() => console.log('Connection to database failed'));
