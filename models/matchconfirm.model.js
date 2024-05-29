@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MatchConfirmSchema = mongoose.Schema(
     {
         userId: {
-            type: Boolean,
+            type: String,
             required: true
         },
 

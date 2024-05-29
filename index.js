@@ -1,7 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const http = require('http');
+
 const chatrouter = require('./routes/chat.route');
+const appointmentrouter = require('./routes/appointment.route');
+const matchrouter = require('./routes/match.route');
+const matchregisterrouter = require('./routes/matchregister.route');
+
 const socketio = require('socket.io');
 
 const app = express();
@@ -17,10 +22,12 @@ io.on('connection', (socket) => {
         console.log('user id ', userid, ' connected');
     });
 
+    //WIP
     socket.on('chat message', (msg) => {
-        
+
     });
 
+    //WIP
     socket.on('match notice', (notice) => {
 
     });
@@ -30,6 +37,9 @@ io.on('connection', (socket) => {
 
 app.use(express.json());
 app.use(chatrouter);
+app.use(appointmentrouter);
+app.use(matchrouter);
+app.use(matchregisterrouter);
 
 app.get('/', (req, res) => {
     res.send('Hello World')
