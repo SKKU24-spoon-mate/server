@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const MatchRegisterSchema = mongoose.Schema(
+const UpdateProfileSchema = mongoose.Schema(
     {
         nickname: {
             type: String,
@@ -44,6 +44,6 @@ const MatchRegisterSchema = mongoose.Schema(
     }
 );
 
-const UpdateProfile = mongoose.model('Match', UpdateProfile);
+const UpdateProfile = mongoose.model('Match', UpdateProfileSchema);
 
 module.exports = UpdateProfile;
