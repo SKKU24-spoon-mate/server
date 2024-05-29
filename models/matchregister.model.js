@@ -7,7 +7,7 @@ const MatchRegisterSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        
+
         deadline: {
             type: Number,
             required: true

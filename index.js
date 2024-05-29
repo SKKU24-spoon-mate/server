@@ -6,7 +6,7 @@ const chatrouter = require('./routes/chat.route');
 const appointmentrouter = require('./routes/appointment.route');
 const matchrouter = require('./routes/match.route');
 const matchregisterrouter = require('./routes/matchregister.route');
-
+const userRoutes = require('./routes/user.route');
 const socketio = require('socket.io');
 
 const app = express();
@@ -40,7 +40,7 @@ app.use(chatrouter);
 app.use(appointmentrouter);
 app.use(matchrouter);
 app.use(matchregisterrouter);
-app.use('/api/users', userRoutes);
+app.use(userRoutes);
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'verysecretkey',
