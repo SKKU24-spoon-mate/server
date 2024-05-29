@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 
 const UpdateProfileSchema = mongoose.Schema(
     {
+        userId: {
+            type: String,
+            required: true
+        },
+
         nickname: {
             type: String,
             required: true
@@ -28,11 +33,6 @@ const UpdateProfileSchema = mongoose.Schema(
             required: true
         },
 
-        userId: {
-            type: String,
-            required: true
-        },
-        
         total_mates: {
             type: Number,
             required: true
