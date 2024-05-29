@@ -11,7 +11,7 @@ const socketio = require('socket.io');
 
 const app = express();
 const httpserver = http.createServer(app);
-const io = socketio(httpserver); 
+const io = socketio(httpserver);
 
 let users = {};
 
@@ -40,6 +40,15 @@ app.use(chatrouter);
 app.use(appointmentrouter);
 app.use(matchrouter);
 app.use(matchregisterrouter);
+app.use('/api/users', userRoutes);
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'verysecretkey',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // for HTTP; set true for HTTPS
+}));
+
 
 app.get('/', (req, res) => {
     res.send('Hello World')
