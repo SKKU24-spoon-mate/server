@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const MatchRegisterSchema = mongoose.Schema(
+const MatchRegisterSchema = new mongoose.Schema(
     {
         menu: {
             type: String,
@@ -34,6 +34,6 @@ const MatchRegisterSchema = mongoose.Schema(
     }
 );
 
-const MatchRegister = mongoose.model('Match', MatchRegisterSchema);
+const MatchRegister = mongoose.model('MatchRegister', MatchRegisterSchema);
 
 module.exports = MatchRegister;
