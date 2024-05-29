@@ -7,6 +7,11 @@ const MatchRegisterSchema = mongoose.Schema(
             type: String,
             required: true
         },
+
+        profile_image: {
+            type: String,
+            required: true
+        },
         
         average_spoons: {
             type: Number,
@@ -39,6 +44,6 @@ const MatchRegisterSchema = mongoose.Schema(
     }
 );
 
-const MatchRegister = mongoose.model('Match', MatchRegisterSchema);
+const UpdateProfile = mongoose.model('Match', UpdateProfile);
 
-module.exports = MatchRegister;
+module.exports = UpdateProfile;
