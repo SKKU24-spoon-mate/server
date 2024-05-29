@@ -36,18 +36,23 @@ io.on('connection', (socket) => {
 })
 
 app.use(express.json());
-app.use(chatrouter);
-app.use(appointmentrouter);
-app.use(matchrouter);
-app.use(matchregisterrouter);
-app.use(userRoutes);
-app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'verysecretkey',
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false } // for HTTP; set true for HTTPS
 }));
+app.use(express.urlencoded({ extended: true }));
+
+
+//use routers
+app.use(chatrouter);
+app.use(appointmentrouter);
+app.use(matchrouter);
+app.use(matchregisterrouter);
+app.use(userRoutes);
+
+
 
 
 app.get('/', (req, res) => {
