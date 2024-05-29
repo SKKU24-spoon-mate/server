@@ -12,6 +12,10 @@ const ReviewSchema = mongoose.Schema(
             required: true
         }
 
+    },
+    {
+        timestamps: true,
+        versionKey: false
     }
 );
 

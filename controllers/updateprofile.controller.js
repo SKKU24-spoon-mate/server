@@ -31,6 +31,6 @@ exports.getUserProfile = async(req, res) => {
         res.status(200).json(userProfile);
 
     } catch (error) {
-        res.status(400).json({ message: "Invalid data or update failure" });
+        res.status(500).json({ message: "Error while fetching user profile" });
     }
 };
