@@ -4,6 +4,7 @@ const Review = require('../models/review.model');
 exports.getUserProfile = async(req, res) => {
     try {
         const userId = req.params.user_id;
+        
         const user = await User.findOne({ 'id': userId });
 
         if (!user) {
@@ -19,7 +20,6 @@ exports.getUserProfile = async(req, res) => {
             nickname: user.nickname,
             profile_image: user.profileImage,
             favorite_food: user.favoriteFood,
-            mbti: user.mbti,
             average_spoons: user.averageSpoons,
             total_mates: user.totalMates,
             reviews: reviews.map(review => ({
