@@ -59,9 +59,11 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 });
 
+const URI = process.env.MONGO_URI;
+
 // Need to be replaced with integrated db
 //we just add Node-API after 'net/' to call it Node-API 
-mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+mongoose.connect(URI)
     .then(() => {
         console.log('Connected to database');
 
