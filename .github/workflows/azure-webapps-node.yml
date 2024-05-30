@@ -49,6 +49,8 @@ jobs:
       run: npm run build --if-present
 
     - name: npm test
+      env:
+          MONGO_URI : ${{ secrets.MONGO_URI }}
       run: |
         if [ -f package.json ] && grep -q '"test"' package.json; then
           npm run test
