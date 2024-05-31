@@ -67,8 +67,11 @@ mongoose.connect(URI)
     .then(() => {
         console.log('Connected to database');
 
-        app.listen(3000, () => {
-            console.log('running on port 3000')
+        const PORT = process.env.PORT || 3000;  // Use PORT from environment or default to 3000
+        httpserver.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
         });
 
-    }).catch(() => console.log('Connection to database failed'));
+    }).catch((err) => {
+        console.error('Connection to database failed', err);
+    });
