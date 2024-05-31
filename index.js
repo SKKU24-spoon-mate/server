@@ -63,15 +63,12 @@ const URI = process.env.MONGO_URI;
 
 // Need to be replaced with integrated db
 //we just add Node-API after 'net/' to call it Node-API 
-mongoose.connect(URI)
+mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
     .then(() => {
         console.log('Connected to database');
 
-        const PORT = process.env.PORT || 3000;  // Use PORT from environment or default to 3000
-        httpserver.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
+        app.listen(3000, () => {
+            console.log('running on port 3000')
         });
 
-    }).catch((err) => {
-        console.error('Connection to database failed', err);
-    });
+    }).catch(() => console.log('Connection to database failed'));
