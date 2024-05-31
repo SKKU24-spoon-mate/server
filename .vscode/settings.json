@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/54f4e277-4430-408b-9671-a3099c7832cb/resourceGroups/Skkuspoon_group/providers/Microsoft.Web/sites/skkuspoon",
+    "appService.deploySubpath": "."
+}
