@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
 });
 
 
-const port = process.env.PORT || 3000; // Use the PORT environment variable or default to 3000
+const port = process.env.PORT || 8080; // Use the PORT environment variable or default to 3000
 
 mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
     .then(() => {
