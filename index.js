@@ -60,21 +60,14 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(80, () => {
-    console.log('running on port 80')
-});
+const port = process.env.PORT || 3000; // Use the PORT environment variable or default to 3000
 
-
-
-
-// Need to be replaced with integrated db
-//we just add Node-API after 'net/' to call it Node-API 
-// mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
-//     .then(() => {
-//         console.log('Connected to database');
-
-//         app.listen(80, () => {
-//             console.log('running on port 80')
-//         });
-
-//     }).catch(() => console.log('Connection to database failed'));
+mongoose.connect('mongodb+srv://summer2788:rubCL5IPVqY5dW2M@backenddb.3wanh75.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+    .then(() => {
+        console.log('Connected to database');
+        httpserver.listen(port, () => {
+            console.log(`Server is running on port ${port}`);
+        });
+    }).catch((error) => {
+        console.log('Connection to database failed', error);
+    });
