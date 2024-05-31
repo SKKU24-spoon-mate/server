@@ -23,7 +23,7 @@ on:
   workflow_dispatch:   # Allows you to run manually this workflow from the Actions tab
 
 env:
-  AZURE_WEBAPP_NAME: skkuspoon    # set this to your application's name
+  AZURE_WEBAPP_NAME: skkuspoon1    # set this to your application's name
   NODE_VERSION: '20.x'                # set this to the node version to use
 
 permissions:
