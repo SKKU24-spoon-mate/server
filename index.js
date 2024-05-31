@@ -59,7 +59,6 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 });
 
-const URI = process.env.MONGO_URI;
 
 // Need to be replaced with integrated db
 //we just add Node-API after 'net/' to call it Node-API 
