@@ -20,7 +20,7 @@
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:
+  workflow_dispatch:   # Allows you to run manually this workflow from the Actions tab
 
 env:
   AZURE_WEBAPP_NAME: skkuspoon    # set this to your application's name
