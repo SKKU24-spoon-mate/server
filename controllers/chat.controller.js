@@ -4,10 +4,9 @@ const Chat = require('../models/chat.model');
 exports.getMessage = async(req, res) => {
     try{
         const id = req.params.id;
-        const to = req.params.to;
 
-        const chats_from = await Chat.find({"from_id":to, "to_id":id});
-        const chats_to = await Chat.find({"from_id":id, "to_id":to});
+        const chats_from = await Chat.find({"to_id":id});
+        const chats_to = await Chat.find({"from_id":id});
         
         const chat_all = chats_from.concat(chats_to).sort((a,b) => {
             return new Date(a.createdAt) - new Date(b.createdAt);
