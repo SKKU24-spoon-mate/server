@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/chat.controller');
 
 
-router.get('/chat/user/:id/to/:to', controller.getMessage);
+router.get('/chat/user/:id', controller.getMessage);
 
 router.post('/chat/user/:id/to/:to', controller.addMessage);
 

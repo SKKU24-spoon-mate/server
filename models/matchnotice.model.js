@@ -2,13 +2,18 @@ const mongoose = require('mongoose');
 
 const MatchNoticeSchema = mongoose.Schema(
     {
-        userImage: {
+        reqUserImage: {
             type: String,
             required: true
         },
 
-        userId: {
-            type: Boolean,
+        reqUserId: {
+            type: String,
+            required: true
+        },
+
+        reqUserNickname: {
+            type: String,
             required: true
         }
 
