@@ -13,12 +13,13 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
+    "express-session": "^1.17.2",
     "http": "^0.0.1-security",
     "mongodb": "^6.6.0",
     "mongoose": "^8.3.3",
-    "socket.io": "^4.7.5",
-    "express-session": "^1.17.2"
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

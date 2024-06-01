@@ -8,6 +8,7 @@ const matchrouter = require('./routes/match.route');
 const matchregisterrouter = require('./routes/matchregister.route');
 const userRoutes = require('./routes/user.route');
 const socketio = require('socket.io');
+const cors = require('cors');
 
 const app = express();
 const httpserver = http.createServer(app);
@@ -43,6 +44,7 @@ app.use(session({
     cookie: { secure: false } // for HTTP; set true for HTTPS
 }));
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 
 //use routers
