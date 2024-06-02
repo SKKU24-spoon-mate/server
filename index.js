@@ -10,6 +10,7 @@ const matchconfirmrouter = require('./routes/matchconfirm.route');
 const matchnoticerouter = require('./routes/matchnotice.route');
 const userRoutes = require('./routes/user.route');
 const profileRoutes = require('./routes/profile.route');
+const reviewRoutes = require('./routes/review.route');
 const socketio = require('socket.io');
 const cors = require('cors');
 
