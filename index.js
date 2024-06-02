@@ -9,6 +9,7 @@ const matchregisterrouter = require('./routes/matchregister.route');
 const matchconfirmrouter = require('./routes/matchconfirm.route');
 const matchnoticerouter = require('./routes/matchnotice.route');
 const userRoutes = require('./routes/user.route');
+const profileRoutes = require('./routes/profile.route');
 const socketio = require('socket.io');
 const cors = require('cors');
 
@@ -27,7 +28,7 @@ io.on('connection', (socket) => {
 
     //WIP
     socket.on('chat message', (msg) => {
-        
+
     });
 
     //WIP
@@ -57,6 +58,7 @@ app.use(matchregisterrouter);
 app.use(userRoutes);
 app.use(matchconfirmrouter);
 app.use(matchnoticerouter);
+app.use('/profile', profileRoutes);
 
 
 
