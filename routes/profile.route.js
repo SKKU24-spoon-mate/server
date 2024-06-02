@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const profileController = require('../controllers/profile.controller');
+const profileController = require('../controllers/profile.controller.js');
 
-// Get My Profile
-router.get('/my', profileController.getMyProfile);
+// Get User Profile
+router.get('/:user_id?', profileController.getProfile);
 
 module.exports = router;
