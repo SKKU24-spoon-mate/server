@@ -3,7 +3,7 @@ const User = require('../models/user.model');
 // Get User Profile
 exports.getProfile = async (req, res) => {
     try {
-        const userId = req.params.user_id || req.user.id; // Use user_id if provided, otherwise use authenticated user's ID
+        const userId = req.params.user_id || req.body; // Use user_id if provided, otherwise use authenticated user's ID
 
         const user = await User.findById(userId);
 
