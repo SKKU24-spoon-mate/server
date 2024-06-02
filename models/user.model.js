@@ -9,24 +9,24 @@ const UserSchema = new mongoose.Schema({
     id: { type: String, required: true, unique: true },
     statusMessage: {
         type: String,
-        required: true,
-    }, 
+        required: false,
+    },
     profileImage: {
         type: String,
-        required: true,
+        required: false,
     },
     favoriteFood: {
         type: String,
-        required: true,
+        required: false,
     },
     averageSpoons: {
         type: Number,
-        required: true,
+        required: false,
         min: 0
     },
     totalMates: {
         type: Number,
-        required: true,
+        required: false,
         min: 0
     },
     password: { type: String, required: true },
