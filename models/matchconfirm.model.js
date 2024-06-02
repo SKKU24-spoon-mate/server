@@ -7,6 +7,11 @@ const MatchConfirmSchema = mongoose.Schema(
             required: true
         },
 
+        reqUserId: {
+            type: String,
+            required: true
+        },
+
         isConfirm: {
             type: Boolean,
             required: true

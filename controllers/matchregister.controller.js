@@ -8,10 +8,14 @@ exports.addMatchRegister = async(req, res) => {
         const new_match = await MatchRegister.create(req.body);
         const user_info = await User.findOne({'id': reg_info.userId});
         
-        reg_info.userImage = user_info.userImage;
+        reg_info.userId = reg_info.userId;
+        reg_info.userName = user_info.nickname;
+        reg_info.userImage = "testuserImageURL";
         reg_info.age = user_info.age;
         reg_info.sex = user_info.sex;
+        reg_info.distance = 0;
 
+        console.log(reg_info);
         await Match.create(reg_info);
 
         res.status(200).json(reg_info);

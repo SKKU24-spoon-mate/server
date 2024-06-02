@@ -10,10 +10,12 @@ exports.addAppointment = async(req, res) => {
         const user_info = await User.findOne({'id':appointment_info.from});
         let notice = {};
 
-        notice.to = appointment_info.target;
-        notice.userImage = user_info.userImage;
-        notice.userId = user_info.id;
+        notice.targetUserId = appointment_info.target;
+        notice.reqUserImage = "testuserImageURL";
+        notice.reqUserId = user_info.id;
+        notice.reqUserNickname = user_info.nickname;
 
+        console.log(notice);
         await MatchNotice.create(notice);
 
         res.status(200).json(new_appointment);
