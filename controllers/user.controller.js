@@ -11,6 +11,11 @@ exports.register = async (req, res) => {
             return res.status(400).json({ error: 'Missing required fields or invalid data' });
         }
 
+        // Validate sex
+        if (!Object.values(User.SexEnum).includes(sex)) {
+            return res.status(400).json({ error: 'Invalid sex value' });
+        }
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(pw, salt);
 
