@@ -59,6 +59,7 @@ app.use(userRoutes);
 app.use(matchconfirmrouter);
 app.use(matchnoticerouter);
 app.use('/profile', profileRoutes);
+app.use('/review', reviewRoutes);
 
 
 
