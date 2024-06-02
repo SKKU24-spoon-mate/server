@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const MatchNoticeSchema = mongoose.Schema(
     {
+        targetUserId: {
+            type: String,
+            required: true
+        },
+
         reqUserImage: {
             type: String,
             required: true
@@ -17,6 +22,9 @@ const MatchNoticeSchema = mongoose.Schema(
             required: true
         }
 
+    },
+    {
+        timestamps: true
     }
 );
 

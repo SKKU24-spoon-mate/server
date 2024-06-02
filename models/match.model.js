@@ -8,6 +8,11 @@ const MatchListSchema = mongoose.Schema(
             required: true
         },
 
+        userName: {
+            type: String,
+            required: true
+        },
+
         menu: {
             type: String,
             required: true

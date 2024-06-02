@@ -1,6 +1,6 @@
 const MatchConfirm = require('../models/matchconfirm.model');
 
-//WIP
+
 exports.MatchConfirm = async(req, res) => {
     try{
         const new_MatchConfirm = await MatchConfirm.create(req.body);

@@ -14,7 +14,7 @@ exports.addMatchRegister = async(req, res) => {
 
         await Match.create(reg_info);
 
-        res.status(200).json(new_match);
+        res.status(200).json(reg_info);
 
     }catch(error) {
         res.status(500).json({message: "Internal server error"});
