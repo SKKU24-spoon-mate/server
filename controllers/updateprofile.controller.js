@@ -1,27 +1,26 @@
-const Users = require('../models/users.model');
+const User = require('../models/user.model');
 const Review = require('../models/review.model');
 
-exports.getUserProfile = async(req, res) => {
+exports.getUserProfile = async (req, res) => {
     try {
         const userId = req.params.user_id;
         
-        const user = await User.findOne({ 'id': userId });
+        const user = await User.findOne({ _id: userId });
 
         if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
 
-    
-        const reviews = await Review.find({ 'userId': userId });
+        const reviews = await Review.find({ userId: userId });
 
         const userProfile = {
-            status_message: user.statusMessage,
+            statusMessage: user.statusMessage,
             age: user.age,
             nickname: user.nickname,
-            profile_image: user.profileImage,
-            favorite_food: user.favoriteFood,
-            average_spoons: user.averageSpoons,
-            total_mates: user.totalMates,
+            profileImage: user.profileImage,
+            favoriteFood: user.favoriteFood,
+            averageSpoons: user.averageSpoons,
+            totalMates: user.totalMates,
             reviews: reviews.map(review => ({
                 message: review.message,
                 rating: review.rating
