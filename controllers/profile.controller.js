@@ -25,3 +25,34 @@ exports.getProfile = async (req, res) => {
         res.status(500).send(error.message);
     }
 };
+
+
+// Edit My Profile
+exports.editProfile = async (req, res) => {
+    try {
+        const { userId, status_message, age, favorite_food } = req.body;
+
+        // Validate input
+        if (!userId || !status_message || !age || !favorite_food) {
+            return res.status(400).json({ error: 'Missing required fields or invalid data' });
+        }
+
+        // Find the user to update
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Update the user's profile
+        user.status_message = status_message;
+        user.age = age;
+        user.favorite_food = favorite_food;
+
+        // Save the updated user
+        await user.save();
+
+        res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+};
