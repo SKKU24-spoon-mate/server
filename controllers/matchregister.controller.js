@@ -15,10 +15,23 @@ exports.addMatchRegister = async(req, res) => {
         reg_info.sex = user_info.sex;
         reg_info.distance = 0;
 
-        console.log(reg_info);
         await Match.create(reg_info);
 
-        res.status(200).json(reg_info);
+        const time = new Date();
+        const matchList = await Match.aggregate([
+            {
+                $addFields: {
+                    deadlineDate: { $add: ["$createdAt", { $multiply: ["$deadline", 60 * 1000] }] }
+                }
+            },
+            {
+                $match: {
+                    deadlineDate: { $gt: time }
+                }
+            }
+        ]);
+        
+        res.status(200).json(matchList);
 
     }catch(error) {
         res.status(500).json({message: "Internal server error"});
