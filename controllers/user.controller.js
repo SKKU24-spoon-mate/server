@@ -21,7 +21,17 @@ exports.register = async (req, res) => {
 
         const newUser = new User({ id, password: hashedPassword, nickname, sex, age });
         await newUser.save();
-        res.status(200).json({ message: 'Registration successful' });
+        // Respond with all user registration values
+        res.status(200).json({
+            message: 'Registration successful',
+            user: {
+                id: newUser.id,
+                pw: pw, // Note: For security reasons, it is generally not recommended to return passwords, even if hashed.
+                nickname: newUser.nickname,
+                sex: newUser.sex,
+                age: newUser.age
+            }
+        });
     } catch (error) {
         res.status(500).send(error.message);
     }
@@ -40,7 +50,8 @@ exports.login = async (req, res) => {
                 userId: user.id,
                 userNickname: user.nickname,
                 userAge: user.age,
-                userSex: user.sex
+                userSex: user.sex,
+                _id: user._id
             });
         } else {
             res.status(401).json({ error: 'Invalid credentials' });
