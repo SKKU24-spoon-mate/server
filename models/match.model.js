@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 
 const MatchListSchema = mongoose.Schema(
     {
+        objectId: {
+            type: String,
+            required: true
+        },
+        
         userId: {
             type: String,
             required: true
